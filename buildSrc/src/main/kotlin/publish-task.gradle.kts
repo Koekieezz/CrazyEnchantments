@@ -10,6 +10,7 @@ plugins {
 
 val isSnapshot = rootProject.version.toString().contains("rc")
 val type = if (isSnapshot) "beta" else "release"
+val paperType = if (isSnapshot) "Beta" else "Release"
 
 val desc = """    
 ## Changes:
@@ -112,7 +113,7 @@ hangarPublish {
         version.set(rootProject.version.toString())
 
         namespace("CrazyCrew", "CrazyEnchantments")
-        channel.set("Beta")
+        channel.set(paperType)
 
         apiKey.set(System.getenv("hangar_key"))
 
