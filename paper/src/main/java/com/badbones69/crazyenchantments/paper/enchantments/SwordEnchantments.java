@@ -323,7 +323,7 @@ public class SwordEnchantments implements Listener {
         Map<CEnchantment, Integer> enchantments = this.enchantmentBookSettings.getEnchantments(item);
 
         if (EnchantUtils.isEventActive(CEnchantments.HEADLESS, damager, item, enchantments)) {
-            ItemStack head = new ItemBuilder().setMaterial("PLAYER_HEAD").setPlayerName(player.getName()).build();
+            ItemStack head = new ItemBuilder().setMaterial(Material.PLAYER_HEAD).setPlayerName(player.getName()).build();
             event.getDrops().add(head);
         }
 
