@@ -25,6 +25,10 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
 
+      - name: Clear Gradle cache
+        run: |
+          rm -rf $HOME/.gradle/caches
+
       - name: Build artifacts
         run: ./gradlew build --no-daemon --stacktrace
 
