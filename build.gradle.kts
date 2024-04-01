@@ -4,10 +4,36 @@ plugins {
 
 tasks {
     assemble {
-        val jarsDir = File("$rootDir/jars")
-        val customJar = tasks.register<Jar>("customJar")
-            archiveBaseName.set(rootProject.name)
-            from(sourceSets.main.get().output)
+        dependsOn(reobfJar)
+    }
+
+    shadowJar {
+        archiveClassifier.set("")
+
+        listOf(
+            "de.tr7zw.changeme.nbtapi",
+            "org.bstats"
+        ).forEach {
+            relocate(it, "libs.$it")
+        }
+    }
+
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(17)
+    }
+
+    javadoc {
+        options.encoding = Charsets.UTF_8.name()
+    }
+
+    processResources {
+        filteringCharset = Charsets.UTF_8.name()
+    }
+
+    create("printVersion") {
+        doFirst {
+            println(version)
     }
 
         subprojects.filter { it.name == "paper" }.forEach { project ->
