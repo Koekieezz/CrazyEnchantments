@@ -55,11 +55,6 @@ java {
 }
 
 tasks {
-    val customJar = tasks.register<Jar>("customJar") {
-        archiveBaseName.set(rootProject.name)
-        from(sourceSets.main.get().output)
-    }
-    
     compileJava {
         options.encoding = Charsets.UTF_8.name()
         options.release.set(17)
