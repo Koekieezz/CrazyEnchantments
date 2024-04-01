@@ -4,51 +4,22 @@ plugins {
 
 tasks {
     assemble {
-        dependsOn(reobfJar)
-    }
+        val jarsDir = File("$rootDir/jars")
+        if (jarsDir.exists()) jarsDir.delete()
 
-    shadowJar {
-        archiveClassifier.set("")
-
-        listOf(
-            "de.tr7zw.changeme.nbtapi",
-            "org.bstats"
-        ).forEach {
-            relocate(it, "libs.$it")
-        }
-    }
-
-    compileJava {
-        options.encoding = Charsets.UTF_8.name()
-        options.release.set(17)
-    }
-
-    javadoc {
-        options.encoding = Charsets.UTF_8.name()
-    }
-
-    processResources {
-        filteringCharset = Charsets.UTF_8.name()
-    }
-
-    create("printVersion") {
-        doFirst {
-            println(version)
-    }
-
-        subprojects.filter { it.name == "paper" }.forEach { project ->
+        subprojects.forEach { project ->
             dependsOn(":${project.name}:build")
 
             doLast {
-                runCatching {
-                    val file = File("$jarsDir/${project.name.lowercase()}")
+                if (!jarsDir.exists()) jarsDir.mkdirs()
 
-                    file.mkdirs()
+                if (project.name == "core") return@doLast
 
-                    copy {
-                        from(project.layout.buildDirectory.file("libs/${rootProject.name}-${project.version}.jar"))
-                        into(file)
-                    }
+                val file = file("${project.buildDir}/libs/${rootProject.name}-${rootProject.version}.jar")
+
+                copy {
+                    from(file)
+                    into(jarsDir)
                 }
             }
         }
