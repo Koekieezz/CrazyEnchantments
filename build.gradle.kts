@@ -6,12 +6,6 @@ tasks {
     assemble {
         val jarsDir = File("$rootDir/jars")
 
-        doFirst {
-            delete(jarsDir)
-
-            jarsDir.mkdirs()
-        }
-
         subprojects.filter { it.name == "paper" }.forEach { project ->
             dependsOn(":${project.name}:build")
 
