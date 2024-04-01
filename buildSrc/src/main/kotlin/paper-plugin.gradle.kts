@@ -25,6 +25,12 @@ repositories {
 
     maven("https://repo.oraxen.com/releases/")
 
+    maven ("https://repo.alessiodp.com/releases/")
+
+    maven ("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+
+    maven ("https://jitpack.io")
+
     flatDir { dirs("libs") }
 }
 
