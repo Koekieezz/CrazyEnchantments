@@ -25,12 +25,6 @@ tasks {
                         from(project.layout.buildDirectory.file("libs/${rootProject.name}-${project.version}.jar"))
                         into(file)
                     }
-                }.onSuccess {
-                    // Delete to save space on jenkins.
-                    delete(project.layout.buildDirectory.get())
-                    delete(rootProject.layout.buildDirectory.get())
-                }.onFailure {
-                    println("Failed to copy file out of build folder into jars directory: Likely does not exist.")
                 }
             }
         }

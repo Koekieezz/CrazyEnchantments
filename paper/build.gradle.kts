@@ -96,6 +96,7 @@ tasks {
 
     shadowJar {
         archiveClassifier.set("")
+        archiveBaseName.set("CrazyEnchantments")
 
         listOf(
             "de.tr7zw.changeme.nbtapi",
