@@ -26,14 +26,14 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build artifacts
-        run: ./gradlew assemble --no-daemon --stacktrace
+        run: ./gradlew build --no-daemon --stacktrace
 
       - name: Upload artifacts
         uses: actions/upload-artifact@main
         with:
           name: CE Test Build
           path: |
-            build/libs
+            build/jars
           compression-level: 9
 
       - name: Generate Build Summary
