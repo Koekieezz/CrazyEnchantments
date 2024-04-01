@@ -3,6 +3,10 @@ plugins {
 }
 
 repositories {
+    maven("https://repo.crazycrew.us/snapshots/")
+
+    maven("https://repo.crazycrew.us/releases/")
+
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
 
     maven("https://repo.dustplanet.de/artifactory/libs-release-local/")
@@ -19,8 +23,6 @@ repositories {
 
     maven("https://repo.bg-software.com/repository/api/")
 
-    maven("https://repo.crazycrew.us/third-party/")
-
     maven("https://maven.enginehub.org/repo/")
 
     maven("https://repo.oraxen.com/releases/")
@@ -30,7 +32,7 @@ repositories {
     maven ("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 
     maven ("https://jitpack.io")
-    
+
     gradlePluginPortal()
     mavenCentral()
 }

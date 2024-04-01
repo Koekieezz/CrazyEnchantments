@@ -45,7 +45,7 @@ towny = { group = "com.palmergames.bukkit.towny", name = "towny", version = "0.1
 factions = { group = "com.massivecraft", name = "Factions", version = "1.6.9.5-4.1.4-STABLE" }
 
 skyblock = { group = "com.bgsoftware", name = "SuperiorSkyblockAPI", version = "2023.3" }
-plotsquared = { group = "com.plotsquared", name = "PlotSquared-Core", version = "6.11.2" }
+plotsquared = { group = "com.plotsquared", name = "PlotSquared-Core", version = "6.11.1" }
 mcmmo = { group = "com.gmail.nossr50.mcMMO", name = "mcMMO", version = "2.1.228-SNAPSHOT" }
 wildstacker = { group = "com.bgsoftware", name = "WildStackerAPI", version = "2023.3" }
 
